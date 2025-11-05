@@ -1,5 +1,5 @@
-let timeEle = document.getElementById("time");
-let ampmEle = document.getElementById("ampm");
+const timeEle = document.getElementById("time");
+const ampmEle = document.getElementById("ampm");
 function updateClock(){
    let now = new Date();
     let hours =  now.getHours();
@@ -26,15 +26,19 @@ setInterval(updateClock,1000)
     updateClock();
 
 
-let toggle = document.querySelector("#toggle");
+const toggleBtn = document.querySelector("#toggle");
 
-toggle.addEventListener("click",()=>{
+toggleBtn.addEventListener("click",()=>{
     document.body.classList.toggle("light");
     document.body.classList.toggle("dark");
-    if(document.body.classList.contains('light')){
-        toggle.innerText="Light";
-    }
-    else{
-        toggle.innerText="Dark";
-    }
-})
+    const currentTheme = document.body.classList.contains('dark') ? "dark" : "light" ;
+    localStorage.setItem("theme",currentTheme);
+    toggleBtn.innerText = currentTheme === "dark" ? "Dark" : "Light" ;
+});
+
+window.onload = () =>{
+    const savedTheme = localStorage.getItem("theme") || "light";
+    document.body.classList.remove("light","dark");
+    document.body.classList.add(savedTheme);
+    toggleBtn.innerText = savedTheme === "dark" ? "Dark" : "Light" ;
+}
