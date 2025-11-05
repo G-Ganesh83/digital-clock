@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .5s , color .5s;
+}
+
+#toggle{
+    height: 2.5em;
+    width: 6em;
+    font-size: 21px;
+    border: 1px solid ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.light{
+    background: #ffffff;
+    color: black;
+}
+.dark{
+    background-color: #000000;
+    color: white;
+}
